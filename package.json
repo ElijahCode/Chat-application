@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "prettier --check . && npx eslint . --ext .js,.ts && npx tsc --noEmit src/ts/**/**/*.ts",
     "lint:fix": "prettier --write . && eslint . --ext .js,.ts --fix",
-    "build": "webpack",
+    "build": "webpack --mode development",
     "build:prod": "webpack --mode production",
     "dev:serv": "webpack serve --mode development"
   },
