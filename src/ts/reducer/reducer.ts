@@ -1,32 +1,24 @@
-import { Action, State } from "../types";
+import { Action, Message, State } from "../types";
 import {
   sendMessage,
   getMessagesList,
   observeWithEventSource,
 } from "../fireBaseMessagesAPI/fireBaseMessagesApi";
-import { createActionUpdateMessagesList } from "../actionCreator/actionCreators";
 import { render } from "../render/render";
+import { createActionGetMessagesList } from "../actionCreator/actionCreators";
 
 export function reducer(state: State, action: Action): State {
-  let newState = state;
+  let newState = {...state};
   switch (action.type) {
     case "send message":
-      newState.push({
+      newState.messages.push({
         ...action.message,
       });
-      sendMessage(action.message);
-      render(newState);
+      render(newState.messages);
       break;
     case "get messages list":
-      newState = getMessagesList();
-      render(newState);
-      break;
-    case "update messages list":
-      newState = getMessagesList();
-      render(newState);
-      break;
-    case "observe to server":
-      observeWithEventSource((data) => createActionUpdateMessagesList(data));
+      newState.messages = action.messages;
+      render(newState.messages);
       break;
     default:
       break;

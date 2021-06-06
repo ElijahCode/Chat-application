@@ -10,14 +10,7 @@ export function createActionSendMessage(message: Message): Action {
 export function createActionGetMessagesList(messages: Message[]): Action {
   return {
     type: "get messages list",
-    messages,
-  };
-}
-
-export function createActionUpdateMessagesList(messages: Message[]): Action {
-  return {
-    type: "update messages list",
-    messages,
+    messages
   };
 }
 

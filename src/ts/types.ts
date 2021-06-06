@@ -9,4 +9,7 @@ export interface Action {
   type: string;
 }
 
-export type State = any;
+export interface State {
+  userName: string,
+  messages: Message[]
+};
