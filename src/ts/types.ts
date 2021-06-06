@@ -1,5 +1,10 @@
-type message = {
-    name: string;
-    message: string;
-    now: number;
+export interface Message {
+  name: string;
+  message: string;
+  now: number;
+}
+
+export interface Action {
+  [key: string]: any;
+  type: string;
 }

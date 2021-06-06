@@ -46,5 +46,8 @@
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "@elijahcode/redux": "^1.0.0"
   }
 }
