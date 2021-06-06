@@ -48,6 +48,7 @@
     "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
-    "@elijahcode/redux": "^1.0.0"
+    "@elijahcode/redux": "^1.0.0",
+    "firebase": "^8.6.5"
   }
 }

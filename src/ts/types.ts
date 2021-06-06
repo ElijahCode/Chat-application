@@ -8,3 +8,5 @@ export interface Action {
   [key: string]: any;
   type: string;
 }
+
+export type State = any;

@@ -1,12 +1,12 @@
+import { Message } from "../types";
+
 const config = {
-  firebaseBaseUrl: "https://otus-js-chat-4ed79-default-rtdb.firebaseio.com",
+  firebaseBaseUrl:
+    "https://chat-application-ca587-default-rtdb.europe-west1.firebasedatabase.app",
   firebaseCollection: "messages.json",
 };
 
-// /**
-//  * @return {Object[]} messagesList
-//  */
-export async function getMessagesList() {
+export async function getMessagesList(): Promise<Message[]> {
   return fetch(`${config.firebaseBaseUrl}/${config.firebaseCollection}`, {
     headers: {
       Accept: "application/json",
@@ -14,26 +14,20 @@ export async function getMessagesList() {
     },
   })
     .then((response) => response.json())
-    .then((data) =>
+    .then((data: Message) =>
       Object.values(data).map((el) => ({
         ...el,
-        date: new Date(el.date),
+        now: new Date(el.now),
       }))
     );
 }
 
-// /**
-//  * @param {Object} data
-//  * @param {string} data.nickname
-//  * @param {string} data.message
-//  * @returns {boolean}
-//  */
-export async function sendMessage(data) {
+export async function sendMessage(data: Message): Promise<boolean> {
   return fetch(`${config.firebaseBaseUrl}/${config.firebaseCollection}`, {
     method: "POST",
     body: JSON.stringify({
       ...data,
-      date: new Date(),
+      now: Date.now(),
     }),
     headers: {
       Accept: "application/json",
@@ -42,7 +36,7 @@ export async function sendMessage(data) {
   }).then((response) => response.json());
 }
 
-export function observeWithEventSource(cb) {
+export function observeWithEventSource(cb): void {
   // https://developer.mozilla.org/en-US/docs/Web/API/EventSource/EventSource
   const evtSource = new EventSource(
     `${config.firebaseBaseUrl}/${config.firebaseCollection}`
