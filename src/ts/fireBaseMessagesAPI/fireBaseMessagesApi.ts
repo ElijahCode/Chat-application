@@ -14,11 +14,13 @@ export async function getMessagesList(): Promise<Message[]> {
     },
   })
     .then((response) => response.json())
-    .then((data: Message) =>
-      Object.values(data).map((el) => ({
-        ...el,
-      }))
-    );
+    .then((data: Message) => {
+      const result = [];
+      Object.values(data).forEach((el) => {
+        result.push(...el);
+      });
+      return result;
+    });
 }
 
 export async function sendMessage(data: Message): Promise<boolean> {

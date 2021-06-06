@@ -10,6 +10,6 @@ export interface Action {
 }
 
 export interface State {
-  userName: string,
-  messages: Message[]
-};
+  userName: string;
+  messages: Message[];
+}

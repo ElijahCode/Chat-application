@@ -42,10 +42,10 @@ describe("createActionGetMessagesList testing", () => {
         message: "How are you?",
         now: Date.now(),
       },
-  ];
+    ];
     const result: Action = {
       type: "get messages list",
-      messages: messages
+      messages,
     };
     expect(createActionGetMessagesList(messages)).toStrictEqual(result);
   });

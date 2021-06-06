@@ -8,7 +8,7 @@ import { render } from "../render/render";
 import { createActionGetMessagesList } from "../actionCreator/actionCreators";
 
 export function reducer(state: State, action: Action): State {
-  let newState = {...state};
+  const newState = { ...state };
   switch (action.type) {
     case "send message":
       newState.messages.push({
