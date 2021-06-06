@@ -17,7 +17,6 @@ export async function getMessagesList(): Promise<Message[]> {
     .then((data: Message) =>
       Object.values(data).map((el) => ({
         ...el,
-        now: new Date(el.now),
       }))
     );
 }
@@ -27,7 +26,6 @@ export async function sendMessage(data: Message): Promise<boolean> {
     method: "POST",
     body: JSON.stringify({
       ...data,
-      now: Date.now(),
     }),
     headers: {
       Accept: "application/json",
@@ -41,6 +39,8 @@ export function observeWithEventSource(cb): void {
   const evtSource = new EventSource(
     `${config.firebaseBaseUrl}/${config.firebaseCollection}`
   );
-
-  evtSource.addEventListener("put", (ev) => cb(JSON.parse(ev.data).data));
+  function handler(ev) {
+    return cb(JSON.parse(ev.data).data);
+  }
+  evtSource.addEventListener("put", handler);
 }

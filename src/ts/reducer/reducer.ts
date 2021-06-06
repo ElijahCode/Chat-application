@@ -5,6 +5,7 @@ import {
   observeWithEventSource,
 } from "../fireBaseMessagesAPI/fireBaseMessagesApi";
 import { createActionUpdateMessagesList } from "../actionCreator/actionCreators";
+import { render } from "../render/render";
 
 export function reducer(state: State, action: Action): State {
   let newState = state;
@@ -14,15 +15,15 @@ export function reducer(state: State, action: Action): State {
         ...action.message,
       });
       sendMessage(action.message);
-      // render()
+      render(newState);
       break;
     case "get messages list":
       newState = getMessagesList();
-      // render();
+      render(newState);
       break;
     case "update messages list":
       newState = getMessagesList();
-      // render();
+      render(newState);
       break;
     case "observe to server":
       observeWithEventSource((data) => createActionUpdateMessagesList(data));
