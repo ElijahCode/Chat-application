@@ -17,7 +17,7 @@ export async function getMessagesList(): Promise<Message[]> {
     .then((data: Message) => {
       const result = [];
       Object.values(data).forEach((el) => {
-        result.push(...el);
+        result.push(el);
       });
       return result;
     });

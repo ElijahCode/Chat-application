@@ -19,13 +19,19 @@ describe("render function testing", () => {
         now: Date.now(),
       },
     ];
+    const date1 = new Date(messages[0].now);
+    const date2 = new Date(messages[1].now);
     const result = `<div class="messageBlock"><p class="messageHeader">${
       messages[0].name
-    } wrote at ${new Date(messages[0].now)}</p><p class="message">${
+    } wrote at ${date1.getDate()}.${
+      date1.getMonth() + 1
+    }.${date1.getFullYear()} ${date1.getHours()}:${date1.getMinutes()}</p><p class="message">${
       messages[0].message
     }</p></div>\n<div class="messageBlock"><p class="messageHeader">${
       messages[1].name
-    } wrote at ${new Date(messages[1].now)}</p><p class="message">${
+    } wrote at ${date2.getDate()}.${
+      date2.getMonth() + 1
+    }.${date2.getFullYear()} ${date2.getHours()}:${date2.getMinutes()}</p><p class="message">${
       messages[1].message
     }</p></div>\n`;
     render(messages);

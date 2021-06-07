@@ -38,5 +38,5 @@ it("getMessageList testing", async () => {
       json: () => Promise.resolve({ messages }),
     })
   );
-  expect(await getMessagesList()).toEqual([messages[0], messages[1]]);
+  expect(await getMessagesList()).toEqual([[messages[0], messages[1]]]);
 });

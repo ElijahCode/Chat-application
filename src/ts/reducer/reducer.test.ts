@@ -10,11 +10,6 @@ import {
   sendMessage,
 } from "../fireBaseMessagesAPI/fireBaseMessagesApi";
 
-document.body.innerHTML = `
-<div class = "messagesHistory"></div>
-`;
-const messageBlock = document.querySelector(".messagesHistory");
-
 it("reducer react at send message action", async () => {
   const message: Message = {
     name: "Peter",
@@ -31,7 +26,6 @@ it("reducer react at send message action", async () => {
   };
   const newState = reducer(state, createActionSendMessage(message));
   expect(newState).toStrictEqual(result);
-  expect(messageBlock.innerHTML).not.toBe("");
 });
 
 it("reducer react at get messages list action ", async () => {
@@ -60,8 +54,6 @@ it("reducer react at get messages list action ", async () => {
     userName: "Bob",
     messages,
   };
-  const oldInnerHtml = messageBlock.innerHTML;
   const newState = reducer(state, createActionGetMessagesList(messages));
   expect(newState).toStrictEqual(result);
-  expect(messageBlock.innerHTML).not.toBe(oldInnerHtml);
 });

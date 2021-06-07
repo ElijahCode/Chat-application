@@ -14,11 +14,9 @@ export function reducer(state: State, action: Action): State {
       newState.messages.push({
         ...action.message,
       });
-      render(newState.messages);
       break;
     case "get messages list":
       newState.messages = action.messages;
-      render(newState.messages);
       break;
     default:
       break;

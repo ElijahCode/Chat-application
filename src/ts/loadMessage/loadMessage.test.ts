@@ -8,10 +8,6 @@ const state: State = {
   messages: [],
 };
 const store = createStore(reducer, state);
-document.body.innerHTML = `
-<div class = "messagesHistory"></div>
-`;
-const messageBlock = document.querySelector(".messagesHistory");
 
 global.fetch = jest.fn();
 
@@ -58,7 +54,5 @@ it("testing loadData", async () => {
 
   await loadMessage(store);
 
-  expect(store.getState().messages).toStrictEqual(result);
-  console.log(messageBlock.innerHTML);
-  expect(messageBlock.innerHTML).not.toBe("");
+  expect(store.getState().messages).toStrictEqual([result]);
 });

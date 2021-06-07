@@ -14,7 +14,7 @@ export function createActionGetMessagesList(messages: Message[]): Action {
   };
 }
 
-export function createActionObserveToServer() {
+export function createActionObserveToServer(): Action {
   return {
     type: "observe to server",
   };
