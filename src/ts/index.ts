@@ -1,8 +1,6 @@
 import { createStore } from "@elijahcode/redux";
 import { reducer } from "./reducer/reducer";
-import {
-  createActionSendMessage,
-} from "./actionCreator/actionCreators";
+import { createActionSendMessage } from "./actionCreator/actionCreators";
 import { loadMessage } from "./loadMessage/loadMessage";
 import { State, Message } from "./types";
 import {

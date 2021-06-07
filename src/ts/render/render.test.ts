@@ -1,4 +1,5 @@
 import { render } from "./render";
+import { emoji } from "../emoji/emoji";
 import { Message } from "../types";
 
 describe("render function testing", () => {
@@ -35,6 +36,24 @@ describe("render function testing", () => {
       messages[1].message
     }</p></div>\n`;
     render(messages);
+    expect(document.querySelector(".messagesHistory").innerHTML).toBe(result);
+  });
+
+  it("emoji test", () => {
+    const messages = {
+      name: "Peter",
+      message: "Hi :) there!",
+      now: Date.now(),
+    };
+    const date1 = new Date(messages.now);
+    const result = `<div class="messageBlock"><p class="messageHeader">${
+      messages.name
+    } wrote at ${date1.getDate()}.${
+      date1.getMonth() + 1
+    }.${date1.getFullYear()} ${date1.getHours()}:${date1.getMinutes()}</p><p class="message">Hi <img class="emoji" src="${
+      emoji[0].source
+    }"> there!</p></div>\n`;
+    render([messages]);
     expect(document.querySelector(".messagesHistory").innerHTML).toBe(result);
   });
 });
