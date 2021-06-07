@@ -7,8 +7,10 @@ import {
   sendMessage,
   observeWithEventSource,
 } from "./fireBaseMessagesAPI/fireBaseMessagesApi";
-import "./css/index.css";
 import { render } from "./render/render";
+import "./css/index.css";
+import "./images/smile.png";
+import "./images/sad.png";
 
 let userName;
 userName = userName === "" ? "Anonymous" : userName;

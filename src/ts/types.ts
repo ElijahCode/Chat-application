@@ -15,7 +15,7 @@ export interface State {
 }
 
 export interface Emoticon {
-  key: string;
+  regExp: RegExp;
   name: string;
   source: string;
 }

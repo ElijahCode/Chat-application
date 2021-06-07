@@ -2,13 +2,13 @@ import { Emoticon } from "../types";
 
 export const emoji: Emoticon[] = [
   {
-    key: ":)",
+    regExp: /:\)/gm,
     name: "smile",
-    source: "/somewhere",
+    source: "./images/smile.png",
   },
   {
-    key: ":(",
+    regExp: /:\(/gm,
     name: "sad",
-    source: "/somewhere",
+    source: "./images/sad.png",
   },
 ];

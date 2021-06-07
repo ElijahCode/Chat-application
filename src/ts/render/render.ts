@@ -20,10 +20,9 @@ export function render(messages: Message[]): void {
 
   emoji.forEach((el) => {
     resultString = resultString.replace(
-      el.key,
-      (...args) => `<img class="emoji" src=${el.source}>`
+      el.regExp,
+      `<img class="emoji" src=${el.source}>`
     );
   });
-
   messagesHistory.innerHTML = resultString;
 }
