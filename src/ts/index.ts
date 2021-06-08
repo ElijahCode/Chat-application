@@ -34,7 +34,7 @@ const input: HTMLInputElement = document.querySelector(".messageBox");
 const button: HTMLButtonElement = document.querySelector(".sendButton");
 
 store.subscribe(() => {
-  render(store.getState().messages);
+  render(store.getState());
 });
 
 async function handler(event) {

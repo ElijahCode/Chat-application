@@ -54,7 +54,7 @@ describe("render function testing", () => {
       date1.getMonth() + 1
     }.${date1.getFullYear()} ${date1.getHours()}:${date1.getMinutes()}</p><p class="message">Hi <img class="emoji" src="${
       emoji[0].source
-    }"> there!</p></div>\n`;
+    }" heigth="20px" width="20px"> there!</p></div>\n`;
     render(state);
     expect(document.querySelector(".messagesHistory").innerHTML).toBe(result);
   });

@@ -9,7 +9,7 @@ export function render(state: State): void {
   let resultString = "";
   state.messages.forEach((el) => {
     const date = new Date(el.now);
-    if (el.name === state.userName) {
+    if (el.name === state.userName && el.name !== "Anonymous") {
       resultString += `<div class ="userMessageBlock"><p class="messageHeader">${
         el.name
       } wrote at ${date.getDate()}.${
@@ -31,7 +31,7 @@ export function render(state: State): void {
   emoji.forEach((el) => {
     resultString = resultString.replace(
       el.regExp,
-      `<img class="emoji" src=${el.source}>`
+      `<img class="emoji" src=${el.source} heigth=20px width=20px>`
     );
   });
   messagesHistory.innerHTML = resultString;
