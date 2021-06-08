@@ -1,6 +1,6 @@
 import { render } from "./render";
 import { emoji } from "../emoji/emoji";
-import { Message } from "../types";
+import { Message, State } from "../types";
 
 describe("render function testing", () => {
   document.body.innerHTML = `
@@ -22,7 +22,8 @@ describe("render function testing", () => {
     ];
     const date1 = new Date(messages[0].now);
     const date2 = new Date(messages[1].now);
-    const result = `<div class="messageBlock"><p class="messageHeader">${
+    const state: State = { userName: "Peter", messages };
+    const result = `<div class="userMessageBlock"><p class="messageHeader">${
       messages[0].name
     } wrote at ${date1.getDate()}.${
       date1.getMonth() + 1
@@ -35,7 +36,7 @@ describe("render function testing", () => {
     }.${date2.getFullYear()} ${date2.getHours()}:${date2.getMinutes()}</p><p class="message">${
       messages[1].message
     }</p></div>\n`;
-    render(messages);
+    render(state);
     expect(document.querySelector(".messagesHistory").innerHTML).toBe(result);
   });
 
@@ -46,14 +47,15 @@ describe("render function testing", () => {
       now: Date.now(),
     };
     const date1 = new Date(messages.now);
-    const result = `<div class="messageBlock"><p class="messageHeader">${
+    const state: State = { userName: "Peter", messages: [messages] };
+    const result = `<div class="userMessageBlock"><p class="messageHeader">${
       messages.name
     } wrote at ${date1.getDate()}.${
       date1.getMonth() + 1
     }.${date1.getFullYear()} ${date1.getHours()}:${date1.getMinutes()}</p><p class="message">Hi <img class="emoji" src="${
       emoji[0].source
     }"> there!</p></div>\n`;
-    render([messages]);
+    render(state);
     expect(document.querySelector(".messagesHistory").innerHTML).toBe(result);
   });
 });

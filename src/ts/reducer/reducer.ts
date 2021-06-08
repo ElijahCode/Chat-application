@@ -1,11 +1,4 @@
-import { Action, Message, State } from "../types";
-import {
-  sendMessage,
-  getMessagesList,
-  observeWithEventSource,
-} from "../fireBaseMessagesAPI/fireBaseMessagesApi";
-import { render } from "../render/render";
-import { createActionGetMessagesList } from "../actionCreator/actionCreators";
+import { Action, State } from "../types";
 
 export function reducer(state: State, action: Action): State {
   const newState = { ...state };
