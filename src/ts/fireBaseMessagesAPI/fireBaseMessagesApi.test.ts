@@ -12,7 +12,7 @@ it("sendMessage testing", async () => {
     message: "Hi!",
     now: Date.now(),
   };
-  fetch.mockImplementationOnce(() =>
+  (fetch as jest.Mock).mockImplementationOnce(() =>
     Promise.resolve({
       json: () => Promise.resolve({ ...message }),
     })
@@ -33,7 +33,7 @@ it("getMessageList testing", async () => {
       now: Date.now(),
     },
   ];
-  fetch.mockImplementationOnce(() =>
+  (fetch as jest.Mock).mockImplementationOnce(() =>
     Promise.resolve({
       json: () => Promise.resolve({ messages }),
     })

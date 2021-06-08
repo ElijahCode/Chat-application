@@ -46,7 +46,7 @@ it("testing loadData", async () => {
       now: Date.now(),
     },
   ];
-  fetch.mockImplementationOnce(() =>
+  (fetch as jest.Mock).mockImplementationOnce(() =>
     Promise.resolve({
       json: () => Promise.resolve({ messages }),
     })
