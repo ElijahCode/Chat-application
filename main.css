@@ -32,3 +32,25 @@ body {
   width: 74%;
 }
 
+.sendButton {
+  width: 24%;
+}
+
+.messageBlock {
+  width: 50%;
+  margin: 10px auto 10px 5px;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid hsla(122, 100%, 50%, 1);
+  background-color: hsla(122, 100%, 50%, 1);
+  border-radius: 10px;
+}
+
+.userMessageBlock {
+  width: 50%;
+  margin: 10px 5px 10px auto;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid hsla(207, 100%, 50%, 1);
+  background-color: hsla(207, 100%, 50%, 1);
+  border-radius: 10px;
+}
+
