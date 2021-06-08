@@ -32,9 +32,13 @@ const store = createStore(reducer, state, []);
 
 const input: HTMLInputElement = document.querySelector(".messageBox");
 const button: HTMLButtonElement = document.querySelector(".sendButton");
+const messagesHistoryBlock: HTMLDivElement = document.querySelector(
+  ".messagesHistory"
+);
 
 store.subscribe(() => {
   render(store.getState());
+  messagesHistoryBlock.scrollTop = messagesHistoryBlock.scrollHeight;
 });
 
 async function handler(event) {
@@ -62,4 +66,5 @@ observeWithEventSource(async (data: Message[]) => {
 
 (async () => {
   await loadMessage(store);
+  messagesHistoryBlock.scrollTop = messagesHistoryBlock.scrollHeight;
 })();
