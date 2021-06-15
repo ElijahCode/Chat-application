@@ -20,5 +20,6 @@ module.exports = {
     "import/no-unresolved": "off",
     "import/extensions": ["warn", "never"],
     "import/prefer-default-export": "off",
+    "no-alert": "off",
   },
 };

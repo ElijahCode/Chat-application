@@ -13,7 +13,7 @@ describe("createActionSendMessage testing", () => {
       now,
     };
     const result: Action = {
-      type: "send message",
+      type: "SendMessage",
       message: {
         name: "Peter",
         message: "Hi!",
@@ -44,7 +44,7 @@ describe("createActionGetMessagesList testing", () => {
       },
     ];
     const result: Action = {
-      type: "get messages list",
+      type: "GetMessagesList",
       messages,
     };
     expect(createActionGetMessagesList(messages)).toStrictEqual(result);

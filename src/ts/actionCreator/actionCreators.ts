@@ -2,20 +2,20 @@ import { Action, Message } from "../types";
 
 export function createActionSendMessage(message: Message): Action {
   return {
-    type: "send message",
+    type: "SendMessage",
     message: { ...message },
   };
 }
 
 export function createActionGetMessagesList(messages: Message[]): Action {
   return {
-    type: "get messages list",
+    type: "GetMessagesList",
     messages,
   };
 }
 
 export function createActionObserveToServer(): Action {
   return {
-    type: "observe to server",
+    type: "ObserveToServer",
   };
 }

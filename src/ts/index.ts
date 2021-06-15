@@ -49,8 +49,13 @@ async function handler(event) {
     now: Date.now(),
   };
   input.value = "";
+  try {
+    await sendMessage(message);
+    store.dispatch(createActionSendMessage(message));
+  } catch {
+    alert("Your message is not sending, try later!");
+  }
   store.dispatch(createActionSendMessage(message));
-  await sendMessage(message);
 }
 
 button.addEventListener("click", handler);
