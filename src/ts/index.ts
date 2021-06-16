@@ -41,7 +41,7 @@ store.subscribe(() => {
   messagesHistoryBlock.scrollTop = messagesHistoryBlock.scrollHeight;
 });
 
-async function handler(event) {
+async function handler() {
   const messageText = input.value;
   const message: Message = {
     name: userName,
@@ -61,11 +61,11 @@ async function handler(event) {
 button.addEventListener("click", handler);
 input.addEventListener("keydown", (event) => {
   if (event.code === "Enter") {
-    handler(event);
+    handler();
   }
 });
 
-observeWithEventSource(async (data: Message[]) => {
+observeWithEventSource(async () => {
   await loadMessage(store);
 });
 

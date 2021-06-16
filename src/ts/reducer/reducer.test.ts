@@ -1,14 +1,9 @@
 import { reducer } from "./reducer";
 import {
   createActionGetMessagesList,
-  createActionObserveToServer,
   createActionSendMessage,
 } from "../actionCreator/actionCreators";
 import { Message, State } from "../types";
-import {
-  getMessagesList,
-  sendMessage,
-} from "../fireBaseMessagesAPI/fireBaseMessagesApi";
 
 it("reducer react at send message action", async () => {
   const message: Message = {
