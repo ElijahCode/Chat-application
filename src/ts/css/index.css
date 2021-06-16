@@ -1,0 +1,55 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  background-color: hsla(283, 100%, 97%, 1);
+}
+
+.mainContentBlock {
+  width: 80%;
+  height: 100%;
+
+  margin: 0px auto 0px auto;
+}
+
+.messagesHistory {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 75%;
+  height: 90%;
+
+  margin: 10px auto 10px auto;
+
+  overflow-y: auto;
+}
+
+.messagesSend {
+  width: 75%;
+  margin: 0px auto 0px auto;
+}
+
+.messageBox {
+  width: 74%;
+}
+
+.sendButton {
+  width: 24%;
+}
+
+.messageBlock {
+  width: 50%;
+  margin: 10px auto 10px 5px;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid hsla(122, 100%, 50%, 1);
+  background-color: hsla(122, 100%, 50%, 1);
+  border-radius: 10px;
+}
+
+.userMessageBlock {
+  width: 50%;
+  margin: 10px 5px 10px auto;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid hsla(207, 100%, 50%, 1);
+  background-color: hsla(207, 100%, 50%, 1);
+  border-radius: 10px;
+}
